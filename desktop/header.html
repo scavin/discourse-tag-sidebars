@@ -1,6 +1,5 @@
 <script type="text/discourse-plugin" version="0.8">
-  import { inject as service } from '@ember/service';
-
+ 
   function defaultSettings() {
     return {};
   }
@@ -27,7 +26,7 @@
 
     html() {
       const path = window.location.pathname;
-      const discoveryService = this.get('discovery'); // 注入发现服务
+      const discoveryService = container.lookup('service:discovery');
       const tag = discoveryService.getCurrentTag(); // 获取当前标签
       const stickyOffset  = document.getElementsByClassName('d-header')[0].offsetHeight + 20;
       const sidebarWrapper = document.getElementById("fixed-wrapper");
